@@ -1,0 +1,15 @@
+version: '2.3'
+services:
+  processing:
+    build:
+      context: ..
+      target: base
+    command: develop/develop
+    environment:
+      PYTHONPATH: .
+    ports:
+      - '27017:27017' # mongodb
+      - '5000:5000' # flask
+    volumes:
+      - ..:/app
+      - ..:/data/db

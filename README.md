@@ -24,15 +24,19 @@ sudo develop/shell
 
 #### Flask with Docker-compose
 
+Curl
 ```bash
 curl localhost:5000/ -x GET
 ```
+Response
 ```response
 Hey, we have Flask in a Docker container!
 ```
+Curl
 ```bash
 curl localhost:5000/members/husein/
 ```
+Response
 ```response
 husein
 ```

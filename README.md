@@ -114,3 +114,15 @@ curl localhost:5000/ -d "username=huseinzol05" -X GET
 
 "[10001, \"huseinzol05\", \"husein\", \"zolkepli\", \"comel\"]"
 ```
+
+#### Flask + Postgres + Rest API with Docker-compose
+
+```text
+curl localhost:5000/ -d "username=huseinzol05&first_name=husein&last_name=zolkepli&pass=comel" -X PUT
+
+"success {\"pass\": \"comel\", \"first_name\": \"husein\", \"last_name\": \"zolkepli\", \"username\": \"huseinzol05\"}"
+
+curl localhost:5000/ -d "username=huseinzol05" -X GET
+
+"[\"huseinzol05\", \"husein\", \"zolkepli\", \"comel\"]"
+```

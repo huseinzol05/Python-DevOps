@@ -1,5 +1,5 @@
 # Python-Devops
-Covering pretty much from REST API, micro-services, Redis, MongoDB, Docker and Parallelization
+Try to cover pretty much we know.
 
 ## How-to Docker
 Every folders contain .yml for docker-compose. You need to install Docker-Compose first.

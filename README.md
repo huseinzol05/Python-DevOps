@@ -37,34 +37,30 @@ husein
 
 #### Flask with MongoDB
 
-```bash
+```text
 curl localhost:5000/ -X GET
-```
-Response
-```response
+
 Hey, we have Flask with MongoDB in a Docker container!
 ```
-```bash
+```text
 curl localhost:5000/insert?name=husein -X GET
-```
-Response
-```response
+
 done inserted husein
 ```
-```bash
+```text
 curl localhost:5000/get?name=husein -X GET
-```
-Response
-```response
+
 husein
 ```
-```bash
+```text
 curl localhost:5000/get?name=mike -X GET
-```
-Response
-```response
+
 not found
 ```
+
+#### Flask Rest API
+
+```text
 
 
 

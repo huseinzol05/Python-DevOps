@@ -61,6 +61,43 @@ not found
 #### Flask Rest API
 
 ```text
+curl localhost:5000 -X GET
 
+{"hello": "world"}
+```
+```text
+curl localhost:5000/todo1 -d "data=take milk" -X PUT
+curl localhost:5000/todo1 -X GET
 
+{"todo1": "take milk"}
+```
 
+#### Flask + Rest API + Redis + PubSub
+
+```text
+curl localhost:5000 -X GET
+
+Hey, we have Flask with Redis in a Docker container!
+```
+
+```text
+localhost:5000/first-channel -X GET
+
+{"message": "Internal Server Error"}
+```
+
+```text
+curl localhost:5000/first-channel -d "data=from first channel" -X PUT
+
+"from first channel"
+
+curl localhost:5000/first-channel -X GET
+
+"from first channel"
+```
+
+```text
+curl localhost:5000/fifth-channel -X GET
+
+{"message": "Internal Server Error"}
+```

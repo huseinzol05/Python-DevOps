@@ -19,6 +19,7 @@ sudo develop/shell
 2. Flask and MongoDB with Docker-compose
 3. Flask Rest API with Docker-compose
 4. Flask + Rest API + Redis + PubSub with Docker-compose
+5. Flask + MySQL + Rest API with Docker-compose
 
 ## How-to Request
 
@@ -100,4 +101,16 @@ curl localhost:5000/first-channel -X GET
 curl localhost:5000/fifth-channel -X GET
 
 {"message": "Internal Server Error"}
+```
+
+#### Flask + MySQL + Rest API with Docker-compose
+
+```text
+curl localhost:5000/ -d "username=huseinzol05&first_name=husein&last_name=zolkepli&password=comel" -X PUT
+
+"success {\"password\": \"comel\", \"first_name\": \"husein\", \"last_name\": \"zolkepli\", \"username\": \"huseinzol05\"}"
+
+curl localhost:5000/ -d "username=huseinzol05" -X GET
+
+"[10001, \"huseinzol05\", \"husein\", \"zolkepli\", \"comel\"]"
 ```

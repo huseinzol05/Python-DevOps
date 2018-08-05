@@ -24,7 +24,6 @@ sudo develop/shell
 
 #### Flask with Docker-compose
 
-Curl
 ```bash
 curl localhost:5000/ -x GET
 ```
@@ -32,13 +31,43 @@ Response
 ```response
 Hey, we have Flask in a Docker container!
 ```
-Curl
 ```bash
 curl localhost:5000/members/husein/
 ```
 Response
 ```response
 husein
+```
+
+#### Flask with MongoDB
+
+```bash
+curl localhost:5000/ -X GET
+```
+Response
+```response
+Hey, we have Flask with MongoDB in a Docker container!
+```
+```bash
+curl localhost:5000/insert?name=husein -X GET
+```
+Response
+```response
+done inserted husein
+```
+```bash
+curl localhost:5000/get?name=husein -X GET
+```
+Response
+```response
+husein
+```
+```bash
+curl localhost:5000/get?name=mike -X GET
+```
+Response
+```response
+not found
 ```
 
 

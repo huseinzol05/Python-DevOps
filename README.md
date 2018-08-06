@@ -126,6 +126,7 @@ curl localhost:5000/ -d "username=huseinzol05&first_name=husein&last_name=zolkep
 curl localhost:5000/ -d "username=huseinzol05" -X GET
 
 "[\"huseinzol05\", \"husein\", \"zolkepli\", \"comel\"]"
+```
 
 #### Flask + Elastic Search with Docker-compose
 

@@ -1,7 +1,8 @@
 #!/bin/sh
 
-unzip elasticsearch-6.3.2.zip
 useradd elastic
 chmod 777 -R elasticsearch-6.3.2
+#supervisord --nodaemon -c develop/supervisord.conf
 su -c "elasticsearch-6.3.2/bin/elasticsearch -d" elastic
-bash eventlet.sh
+python3 app.py
+

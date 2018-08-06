@@ -20,4 +20,8 @@ RUN apt-get update && apt-get install -y curl supervisor
 
 WORKDIR /app
 
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.2.zip
+
+RUN unzip elasticsearch-6.3.2.zip
+
 COPY . /app

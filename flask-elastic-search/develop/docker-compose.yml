@@ -8,6 +8,5 @@ services:
     environment:
       PYTHONPATH: .
     ports:
-      - '9300:9300'
       - '9200:9200' # elastic
       - '5000:5000' # flask

@@ -20,6 +20,7 @@ sudo develop/shell
 3. Flask Rest API with Docker-compose
 4. Flask + Rest API + Redis + PubSub with Docker-compose
 5. Flask + MySQL + Rest API with Docker-compose
+6. Flask + Elastic Search with Docker-compose
 
 ## How-to Request
 

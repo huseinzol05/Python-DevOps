@@ -1,0 +1,7 @@
+#!/bin/sh
+
+unzip elasticsearch-6.3.2.zip
+useradd elastic
+chmod 777 -R elasticsearch-6.3.2
+su -c "elasticsearch-6.3.2/bin/elasticsearch -d" elastic
+bash eventlet.sh

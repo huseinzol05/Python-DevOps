@@ -1,6 +1,6 @@
 # Programming-Environment
 
-you only need docker compose to start programming environment inside Robopreneur Sdn Bhd
+you only need docker compose to start programming environment
 
 ## How-to Start
 ```bash

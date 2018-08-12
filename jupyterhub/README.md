@@ -1,6 +1,6 @@
 # Jupyterhub-Robopreneur
 
-docker compose our jupyterhub in-house inside Robopreneur Sdn Bhd
+docker compose our jupyterhub
 
 ## How-to Start
 ```bash

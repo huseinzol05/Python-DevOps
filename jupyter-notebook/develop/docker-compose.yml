@@ -1,0 +1,13 @@
+version: '2.3'
+services:
+  programming:
+    build:
+      context: ..
+      target: base
+    command: develop/develop
+    environment:
+      PYTHONPATH: .
+    ports:
+      - '8080:8080'
+    volumes:
+      - ..:/app

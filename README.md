@@ -23,6 +23,7 @@ sudo develop/shell
 6. Flask + Elastic Search with Docker-compose
 7. Jupyter notebook with Docker-compose
 8. Jupyterhub with Docker-compose
+9. Streaming Twitter + Elastic Search + Kibana
 
 ## How-to Request
 
@@ -137,3 +138,17 @@ curl localhost:9200/recipes/_search?q=title:salad -X GET
 
 {"took":62,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":10,"max_score":0.054237623,"hits":[{"_index":"recipes","_type":"salads","_id":"LtlzD2UBBv9LAuM_3gMX","_score":0.054237623,"_source":{"ingredients": [{"step": "1/4 cup basil leaves"}, {"step": "4 cups 1/2-inch cubes watermelon"}, {"step": "2 teaspoons lemon juice"}, {"step": "1/4 teaspoon kosher salt"}, {"step": "1/4 teaspoon chili powder"}], "description": "A quick salad of watermelon and basil. The chili powder plays well with the sweetness of the melon.", "submitter": "Chefthompson.com", "title": "Watermelon Basil Salad", "calories": "10"}}
 ```
+
+#### Streaming Twitter + Elastic Search + Kibana
+
+Make sure you inserted related keys in twitter-streaming.py
+
+```python
+consumer_key=""
+consumer_secret=""
+
+access_token=""
+access_token_secret=""
+```
+
+![alt text](sentiment-twitter-elasticsearch/kibana.png)

@@ -10,8 +10,18 @@ sudo develop/up
 ```
 
 To access the bash, (open new terminal, develop/up must run)
-```
+```bash
 sudo develop/shell
+```
+
+To remove all images
+```bash
+docker rmi $(docker images -q)
+```
+
+To remove all containers
+```bash
+docker rm $(docker ps -aq)
 ```
 
 ## Covered

@@ -34,6 +34,7 @@ docker rm $(docker ps -aq)
 7. Jupyter notebook with Docker-compose
 8. Jupyterhub with Docker-compose
 9. Streaming Twitter + Elastic Search + Kibana
+10. News Crawler + Luigi + Elastic Search + Kibana
 
 ## How-to Request
 
@@ -162,3 +163,17 @@ access_token_secret=""
 ```
 
 ![alt text](sentiment-twitter-elasticsearch/kibana.png)
+
+#### News Crawler + Luigi + Elastic Search + Kibana
+
+Task automation
+
+![alt text](luigi-crawler-sentiment-elasticsearch/dependency.png)
+
+localhost:8082
+
+![alt text](luigi-crawler-sentiment-elasticsearch/luigi.png)
+
+Kibana
+
+![alt text](luigi-crawler-sentiment-elasticsearch/kibana.png)

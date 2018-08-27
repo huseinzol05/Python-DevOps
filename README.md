@@ -6,12 +6,17 @@ Every folders contain .yml for docker-compose. You need to install Docker-Compos
 
 To run,
 ```bash
-sudo develop/up
+compose/build
 ```
 
 To access the bash, (open new terminal, develop/up must run)
 ```bash
-sudo develop/shell
+compose/bash
+```
+
+To safely close
+```bash
+compose/down
 ```
 
 To remove all images

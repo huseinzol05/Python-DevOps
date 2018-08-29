@@ -29,7 +29,8 @@ class StdOutListener(StreamListener):
         global conn, curr, es
         try:
             tweet = json.loads(data)
-            tweettime = datetime.strftime(datetime.strptime(tweet['created_at'],'%a %b %d %H:%M:%S +0000 %Y') + timedelta(hours=8),'%Y-%m-%d %H:%M:%S')
+            # elastic assumed we passed UTC 
+            tweettime = datetime.strftime(datetime.strptime(tweet['created_at'],'%a %b %d %H:%M:%S +0000 %Y') + timedelta(hours=0),'%Y-%m-%d %H:%M:%S')
         except:
             return False
         text = re.sub(r'[^\x00-\x7F]+','', tweet['text'])

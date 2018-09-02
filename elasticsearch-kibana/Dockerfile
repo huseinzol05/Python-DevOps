@@ -23,6 +23,8 @@ RUN echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | tee -
 
 RUN apt-get update && apt-get install kibana
 
+RUN pip3 install Flask
+
 WORKDIR /app
 
 COPY . /app

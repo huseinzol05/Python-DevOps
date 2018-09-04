@@ -199,7 +199,6 @@ dot -Tsvg malaya.dot > malaya.svg
 ```
 
 ![alt text](graph-dependencies/malaya.svg)
-<img src="graph-dependencies/malaya.svg">
 
 ![alt text](graph-dependencies/malaya-graph.png)
 

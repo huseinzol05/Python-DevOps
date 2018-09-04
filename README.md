@@ -45,6 +45,7 @@ docker rm $(docker ps -aq)
 8. Jupyterhub with Docker-compose
 9. Streaming Twitter + Elastic Search + Kibana
 10. News Crawler + Luigi + Elastic Search + Kibana
+11. Graph-dependencies
 
 ## How-to Request
 
@@ -187,3 +188,13 @@ localhost:8082
 Kibana
 
 ![alt text](luigi-crawler-sentiment-elasticsearch/kibana.png)
+
+#### Graph-dependencies
+
+```bash
+cd graph-dependencies
+python3 pyan.py malaya/*.py --colored --annotate --grouped --dot > malaya.dot
+dot -Tsvg malaya.dot > malaya.svg
+```
+
+![alt text](graph-dependencies/malaya-graph.png)

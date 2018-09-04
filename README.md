@@ -46,6 +46,7 @@ docker rm $(docker ps -aq)
 9. Streaming Twitter + Elastic Search + Kibana
 10. News Crawler + Luigi + Elastic Search + Kibana
 11. Graph-dependencies
+12. AutoPEP8
 
 ## How-to Request
 
@@ -198,3 +199,10 @@ dot -Tsvg malaya.dot > malaya.svg
 ```
 
 ![alt text](graph-dependencies/malaya-graph.png)
+
+#### AutoPEP8
+
+```bash
+cd autopep8
+autopep8 --in-place --aggressive --recursive .
+```

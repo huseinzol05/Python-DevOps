@@ -198,6 +198,9 @@ python3 pyan.py malaya/*.py --colored --annotate --grouped --dot > malaya.dot
 dot -Tsvg malaya.dot > malaya.svg
 ```
 
+![alt text](graph-dependencies/malaya.svg)
+<img src="graph-dependencies/malaya.svg">
+
 ![alt text](graph-dependencies/malaya-graph.png)
 
 #### AutoPEP8

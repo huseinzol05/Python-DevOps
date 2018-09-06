@@ -35,20 +35,56 @@ docker rm $(docker ps -aq)
 ```
 
 ## Covered
-1. Flask with Docker-compose
-2. Flask and MongoDB with Docker-compose
-3. Flask Rest API with Docker-compose
-4. Flask + Rest API + Redis + PubSub with Docker-compose
-5. Flask + MySQL + Rest API with Docker-compose
-6. Flask + Elastic Search with Docker-compose
-7. Jupyter notebook with Docker-compose
-8. Jupyterhub with Docker-compose
-9. Streaming Twitter + Elastic Search + Kibana
-10. News Crawler + Luigi + Elastic Search + Kibana
-11. Graph-dependencies
-12. AutoPEP8
+1. AutoPEP8
+2. Graph-dependencies
+3. Pytest Flask
+4. Flask with Docker-compose
+5. Flask and MongoDB with Docker-compose
+6. Flask Rest API with Docker-compose
+7. Flask + Rest API + Redis + PubSub with Docker-compose
+8. Flask + MySQL + Rest API with Docker-compose
+9. Flask + Elastic Search with Docker-compose
+10. Jupyter notebook with Docker-compose
+11. Jupyterhub with Docker-compose
+12. Streaming Twitter + Elastic Search + Kibana
+13. News Crawler + Luigi + Elastic Search + Kibana
 
 ## How-to Request
+
+#### AutoPEP8
+
+```bash
+cd autopep8
+autopep8 --in-place --aggressive --recursive .
+```
+
+#### Graph-dependencies
+
+```bash
+cd graph-dependencies
+python3 pyan.py malaya/*.py --colored --annotate --grouped --dot > malaya.dot
+dot -Tsvg malaya.dot > malaya.svg
+```
+
+![alt text](graph-dependencies/malaya.svg)
+
+![alt text](graph-dependencies/malaya-graph.png)
+
+#### Pytest Flask
+
+```text
+pytest_1  | Name                 Stmts   Miss  Cover
+pytest_1  | ----------------------------------------
+pytest_1  | web/__init__.py         13      2    85%
+pytest_1  | web/calculation.py       6      1    83%
+pytest_1  | ----------------------------------------
+pytest_1  | TOTAL                   19      3    84%
+pytest_1  | Coverage HTML written to dir htmlcov
+```
+
+Open report/index.html
+
+![alt text](pytest-flask/coverage.png)
 
 #### Flask with Docker-compose
 
@@ -189,22 +225,3 @@ localhost:8082
 Kibana
 
 ![alt text](luigi-crawler-sentiment-elasticsearch/kibana.png)
-
-#### Graph-dependencies
-
-```bash
-cd graph-dependencies
-python3 pyan.py malaya/*.py --colored --annotate --grouped --dot > malaya.dot
-dot -Tsvg malaya.dot > malaya.svg
-```
-
-![alt text](graph-dependencies/malaya.svg)
-
-![alt text](graph-dependencies/malaya-graph.png)
-
-#### AutoPEP8
-
-```bash
-cd autopep8
-autopep8 --in-place --aggressive --recursive .
-```

@@ -1,5 +1,22 @@
 # Python-Devops
-Try to cover pretty much we know.
+Try to cover pretty much we know, everything Dockerize!
+
+## Covered
+1. AutoPEP8
+2. Graph-dependencies
+3. Pytest Flask
+4. Locust stress test
+5. Flask with Docker-compose
+6. Flask and MongoDB with Docker-compose
+7. Flask Rest API with Docker-compose
+8. Flask + Rest API + Redis + PubSub with Docker-compose
+9. Flask + MySQL + Rest API with Docker-compose
+10. Flask + Elastic Search with Docker-compose
+11. Jupyter notebook with Docker-compose
+12. Jupyterhub with Docker-compose
+13. Streaming Twitter + Elastic Search + Kibana
+14. News Crawler + Luigi + Elastic Search + Kibana
+15. Flask SocketIO Scaling + Redis
 
 ## How-to Docker
 Every folders contain .yml for docker-compose. You need to install Docker-Compose first.
@@ -33,23 +50,6 @@ To remove all containers
 ```bash
 docker rm $(docker ps -aq)
 ```
-
-## Covered
-1. AutoPEP8
-2. Graph-dependencies
-3. Pytest Flask
-4. Locust stress test
-5. Flask with Docker-compose
-6. Flask and MongoDB with Docker-compose
-7. Flask Rest API with Docker-compose
-8. Flask + Rest API + Redis + PubSub with Docker-compose
-9. Flask + MySQL + Rest API with Docker-compose
-10. Flask + Elastic Search with Docker-compose
-11. Jupyter notebook with Docker-compose
-12. Jupyterhub with Docker-compose
-13. Streaming Twitter + Elastic Search + Kibana
-14. News Crawler + Luigi + Elastic Search + Kibana
-15. Flask SocketIO Scaling + Redis
 
 ## How-to Request
 

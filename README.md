@@ -38,16 +38,17 @@ docker rm $(docker ps -aq)
 1. AutoPEP8
 2. Graph-dependencies
 3. Pytest Flask
-4. Flask with Docker-compose
-5. Flask and MongoDB with Docker-compose
-6. Flask Rest API with Docker-compose
-7. Flask + Rest API + Redis + PubSub with Docker-compose
-8. Flask + MySQL + Rest API with Docker-compose
-9. Flask + Elastic Search with Docker-compose
-10. Jupyter notebook with Docker-compose
-11. Jupyterhub with Docker-compose
-12. Streaming Twitter + Elastic Search + Kibana
-13. News Crawler + Luigi + Elastic Search + Kibana
+4. Locust stress test
+5. Flask with Docker-compose
+6. Flask and MongoDB with Docker-compose
+7. Flask Rest API with Docker-compose
+8. Flask + Rest API + Redis + PubSub with Docker-compose
+9. Flask + MySQL + Rest API with Docker-compose
+10. Flask + Elastic Search with Docker-compose
+11. Jupyter notebook with Docker-compose
+12. Jupyterhub with Docker-compose
+13. Streaming Twitter + Elastic Search + Kibana
+14. News Crawler + Luigi + Elastic Search + Kibana
 
 ## How-to Request
 
@@ -85,6 +86,12 @@ pytest_1  | Coverage HTML written to dir htmlcov
 Open report/index.html
 
 ![alt text](pytest-flask/coverage.png)
+
+#### Locust stress-test
+
+![alt text](Locust-Stresstest/screenshot1.png)
+
+![alt text](Locust-Stresstest/screenshot2.png)
 
 #### Flask with Docker-compose
 

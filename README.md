@@ -89,9 +89,9 @@ Open report/index.html
 
 #### Locust stress-test
 
-![alt text](locust-stresstest/screenshot1.png)
+![alt text](Locust-Stresstest/screenshot1.png)
 
-![alt text](locust-stresstest/screenshot2.png)
+![alt text](Locust-Stresstest/screenshot2.png)
 
 #### Flask with Docker-compose
 

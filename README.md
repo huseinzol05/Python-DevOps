@@ -6,14 +6,14 @@ Try to cover pretty much we know, everything Dockerize!
 2. Graph-dependencies
 3. Pytest Flask
 4. Locust stress test
-5. Flask with Docker-compose
-6. Flask and MongoDB with Docker-compose
-7. Flask Rest API with Docker-compose
-8. Flask + Rest API + Redis + PubSub with Docker-compose
-9. Flask + MySQL + Rest API with Docker-compose
-10. Flask + Elastic Search with Docker-compose
-11. Jupyter notebook with Docker-compose
-12. Jupyterhub with Docker-compose
+5. Flask basic
+6. Flask and MongoDB
+7. Flask Rest API
+8. Flask + Rest API + Redis + PubSub
+9. Flask + MySQL + Rest API
+10. Flask + Elastic Search
+11. Jupyter notebook
+12. Jupyterhub
 13. Streaming Twitter + Elastic Search + Kibana
 14. News Crawler + Luigi + Elastic Search + Kibana
 15. Flask SocketIO Scaling + Redis
@@ -96,7 +96,7 @@ Open report/index.html
 
 ![alt text](Locust-Stresstest/screenshot2.png)
 
-#### Flask with Docker-compose
+#### Flask
 
 ```text
 curl localhost:5000/ -x GET
@@ -176,7 +176,7 @@ curl localhost:5000/fifth-channel -X GET
 {"message": "Internal Server Error"}
 ```
 
-#### Flask + MySQL + Rest API with Docker-compose
+#### Flask + MySQL + Rest API
 
 ```text
 curl localhost:5000/ -d "username=huseinzol05&first_name=husein&last_name=zolkepli&password=comel" -X PUT
@@ -188,7 +188,7 @@ curl localhost:5000/ -d "username=huseinzol05" -X GET
 "[10001, \"huseinzol05\", \"husein\", \"zolkepli\", \"comel\"]"
 ```
 
-#### Flask + Postgres + Rest API with Docker-compose
+#### Flask + Postgres + Rest API
 
 ```text
 curl localhost:5000/ -d "username=huseinzol05&first_name=husein&last_name=zolkepli&pass=comel" -X PUT
@@ -200,7 +200,7 @@ curl localhost:5000/ -d "username=huseinzol05" -X GET
 "[\"huseinzol05\", \"husein\", \"zolkepli\", \"comel\"]"
 ```
 
-#### Flask + Elastic Search with Docker-compose
+#### Flask + Elastic Search
 
 ```text
 curl localhost:9200/recipes/_search?q=title:salad -X GET

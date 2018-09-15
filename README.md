@@ -18,6 +18,7 @@ Try to cover pretty much we know, everything Dockerize!
 14. News Crawler + Luigi + Elastic Search + Kibana
 15. Flask SocketIO Scaling + Redis
 16. Distributed Flask + Redis + Nginx load balancer
+17. Distributed Flask SocketIO + Redis + Nginx load balancer
 
 ## How-to Docker
 Every folders contain .yml for docker-compose. You need to install Docker-Compose first.
@@ -260,4 +261,17 @@ Hello World! I have been seen 20 times.
 
 curl http://localhost/ -X GET
 Hello World! I have been seen 21 times.
+```
+
+#### Distributed Flask SocketIO + Redis + Nginx load balancer
+
+```text
+Port 80 will load balanced on 2 different servers, 5000 and 5001.
+
+stress_test(get_time_80, 50,10)
+index 0, total time taken 1.087309 s, average time taken 0.108731 s
+index 10, total time taken 1.203958 s, average time taken 0.120396 s
+index 20, total time taken 1.310126 s, average time taken 0.131013 s
+index 30, total time taken 1.595863 s, average time taken 0.159586 s
+index 40, total time taken 1.548332 s, average time taken 0.154833 s
 ```

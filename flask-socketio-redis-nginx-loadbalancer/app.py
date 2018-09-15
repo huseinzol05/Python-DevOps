@@ -6,9 +6,8 @@ import json
 import eventlet
 
 eventlet.monkey_patch()
-
 app = Flask(__name__)
-socketio = SocketIO(app, message_queue='redis://')
+socketio = SocketIO(app, message_queue='redis://redis')
 
 @socketio.on('connect', namespace='/live')
 def test_connect():
@@ -21,6 +20,4 @@ def test_disconnect():
 @socketio.on('event', namespace='/live')
 def test_message(message):
     print('incoming from %s'%(message['id']))
-    emit('event',{'data': message['id']},broadcast=True)
-
-application = app
+    emit('event',{'data': 'Hello World!'},broadcast=True)

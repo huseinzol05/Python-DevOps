@@ -250,7 +250,6 @@ stress_test(400,100)
 #### Distributed Flask + Redis + Nginx load balancer
 
 ```text
-
 Port 80 will load balanced on 2 different servers, 5000 and 5001.
 
 curl http://localhost:5000/ -X GET

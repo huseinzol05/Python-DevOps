@@ -45,7 +45,7 @@ To remove all images
 docker rmi $(docker images -q)
 ```
 
-To remove <none> images
+To remove `none` images
 ```bash
 docker rmi $(docker images -f "dangling=true" -q)
 ```

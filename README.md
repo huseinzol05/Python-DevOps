@@ -74,9 +74,9 @@ python3 pyan.py malaya/*.py --colored --annotate --grouped --dot > malaya.dot
 dot -Tsvg malaya.dot > malaya.svg
 ```
 
-![alt text](graph-dependencies/malaya.svg)
+![alt text](2.graph-dependencies/malaya.svg)
 
-![alt text](graph-dependencies/malaya-graph.png)
+![alt text](2.graph-dependencies/malaya-graph.png)
 
 </details>
 
@@ -94,15 +94,15 @@ pytest_1  | Coverage HTML written to dir htmlcov
 
 Open report/index.html
 
-![alt text](pytest-flask/coverage.png)
+![alt text](3.pytest-flask/coverage.png)
 
 </details>
 
 <details><summary>4. Locust stress-test</summary>
 
-![alt text](Locust-Stresstest/screenshot1.png)
+![alt text](4.Locust-Stresstest/screenshot1.png)
 
-![alt text](Locust-Stresstest/screenshot2.png)
+![alt text](4.Locust-Stresstest/screenshot2.png)
 
 </details>
 
@@ -244,7 +244,7 @@ access_token=""
 access_token_secret=""
 ```
 
-![alt text](sentiment-twitter-elasticsearch/kibana.png)
+![alt text](14.sentiment-twitter-elasticsearch/kibana.png)
 
 </details>
 
@@ -252,15 +252,15 @@ access_token_secret=""
 
 Task automation
 
-![alt text](luigi-crawler-sentiment-elasticsearch/dependency.png)
+![alt text](15.luigi-crawler-sentiment-elasticsearch/dependency.png)
 
 localhost:8082
 
-![alt text](luigi-crawler-sentiment-elasticsearch/luigi.png)
+![alt text](15.luigi-crawler-sentiment-elasticsearch/luigi.png)
 
 Kibana
 
-![alt text](luigi-crawler-sentiment-elasticsearch/kibana.png)
+![alt text](15.luigi-crawler-sentiment-elasticsearch/kibana.png)
 
 </details>
 

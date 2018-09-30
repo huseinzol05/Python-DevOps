@@ -11,14 +11,16 @@ Try to cover pretty much we know, everything Dockerize!
 7. Flask Rest API
 8. Flask + Rest API + Redis + PubSub
 9. Flask + MySQL + Rest API
-10. Flask + Elastic Search
-11. Jupyter notebook
-12. Jupyterhub
-13. Streaming Twitter + Elastic Search + Kibana
-14. News Crawler + Luigi + Elastic Search + Kibana
-15. Flask SocketIO Scaling + Redis
-16. Distributed Flask + Redis + Nginx load balancer
-17. Distributed Flask SocketIO + Redis + Nginx load balancer
+10. Flask + Postgres + Rest API
+11. Flask + Elastic Search
+12. Jupyter notebook
+13. Jupyterhub
+14. Streaming Twitter + Elastic Search + Kibana
+15. News Crawler + Luigi + Elastic Search + Kibana
+16. Flask SocketIO Scaling + Redis
+17. Distributed Flask + Redis + Nginx load balancer
+18. Distributed Flask SocketIO + Redis + Nginx load balancer
+19. Flask + Gunicorn + ELK
 
 ## How-to Docker
 Every folders contain .yml for docker-compose. You need to install Docker-Compose first.
@@ -55,14 +57,16 @@ docker rm $(docker ps -aq)
 
 ## How-to Request
 
-#### AutoPEP8
+<details><summary>1. AutoPEP8</summary>
 
 ```bash
 cd autopep8
 autopep8 --in-place --aggressive --recursive .
 ```
 
-#### Graph-dependencies
+</details>
+
+<details><summary>2. Graph-dependencies</summary>
 
 ```bash
 cd graph-dependencies
@@ -74,7 +78,9 @@ dot -Tsvg malaya.dot > malaya.svg
 
 ![alt text](graph-dependencies/malaya-graph.png)
 
-#### Pytest Flask
+</details>
+
+<details><summary>3. Pytest Flask</summary>
 
 ```text
 pytest_1  | Name                 Stmts   Miss  Cover
@@ -90,13 +96,17 @@ Open report/index.html
 
 ![alt text](pytest-flask/coverage.png)
 
-#### Locust stress-test
+</details>
+
+<details><summary>4. Locust stress-test</summary>
 
 ![alt text](Locust-Stresstest/screenshot1.png)
 
 ![alt text](Locust-Stresstest/screenshot2.png)
 
-#### Flask
+</details>
+
+<details><summary>5. Flask</summary>
 
 ```text
 curl localhost:5000/ -x GET
@@ -109,7 +119,9 @@ curl localhost:5000/members/husein/
 husein
 ```
 
-#### Flask with MongoDB
+</details>
+
+<details><summary>6. Flask with MongoDB</summary>
 
 ```text
 curl localhost:5000/ -X GET
@@ -132,7 +144,9 @@ curl localhost:5000/get?name=mike -X GET
 not found
 ```
 
-#### Flask Rest API
+</details>
+
+<details><summary>7. Flask Rest API</summary>
 
 ```text
 curl localhost:5000 -X GET
@@ -146,7 +160,9 @@ curl localhost:5000/todo1 -X GET
 {"todo1": "take milk"}
 ```
 
-#### Flask + Rest API + Redis + PubSub
+</details>
+
+<details><summary>8. Flask + Rest API + Redis + Pubsub</summary>
 
 ```text
 curl localhost:5000 -X GET
@@ -176,7 +192,9 @@ curl localhost:5000/fifth-channel -X GET
 {"message": "Internal Server Error"}
 ```
 
-#### Flask + MySQL + Rest API
+</details>
+
+<details><summary>9. Flask + MySQL + Rest API</summary>
 
 ```text
 curl localhost:5000/ -d "username=huseinzol05&first_name=husein&last_name=zolkepli&password=comel" -X PUT
@@ -188,7 +206,9 @@ curl localhost:5000/ -d "username=huseinzol05" -X GET
 "[10001, \"huseinzol05\", \"husein\", \"zolkepli\", \"comel\"]"
 ```
 
-#### Flask + Postgres + Rest API
+</details>
+
+<details><summary>10. Flask + Postgres + Rest API</summary>
 
 ```text
 curl localhost:5000/ -d "username=huseinzol05&first_name=husein&last_name=zolkepli&pass=comel" -X PUT
@@ -200,7 +220,9 @@ curl localhost:5000/ -d "username=huseinzol05" -X GET
 "[\"huseinzol05\", \"husein\", \"zolkepli\", \"comel\"]"
 ```
 
-#### Flask + Elastic Search
+</details>
+
+<details><summary>11. Flask + Elastic Search</summary>
 
 ```text
 curl localhost:9200/recipes/_search?q=title:salad -X GET
@@ -208,7 +230,9 @@ curl localhost:9200/recipes/_search?q=title:salad -X GET
 {"took":62,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":10,"max_score":0.054237623,"hits":[{"_index":"recipes","_type":"salads","_id":"LtlzD2UBBv9LAuM_3gMX","_score":0.054237623,"_source":{"ingredients": [{"step": "1/4 cup basil leaves"}, {"step": "4 cups 1/2-inch cubes watermelon"}, {"step": "2 teaspoons lemon juice"}, {"step": "1/4 teaspoon kosher salt"}, {"step": "1/4 teaspoon chili powder"}], "description": "A quick salad of watermelon and basil. The chili powder plays well with the sweetness of the melon.", "submitter": "Chefthompson.com", "title": "Watermelon Basil Salad", "calories": "10"}}
 ```
 
-#### Streaming Twitter + Elastic Search + Kibana
+</details>
+
+<details><summary>14. Streaming Twitter + Elastic Search + Kibana</summary>
 
 Make sure you inserted related keys in twitter-streaming.py
 
@@ -222,7 +246,9 @@ access_token_secret=""
 
 ![alt text](sentiment-twitter-elasticsearch/kibana.png)
 
-#### News Crawler + Luigi + Elastic Search + Kibana
+</details>
+
+<details><summary>15. News Crawler + Luigi + Elastic Search + Kibana</summary>
 
 Task automation
 
@@ -236,7 +262,9 @@ Kibana
 
 ![alt text](luigi-crawler-sentiment-elasticsearch/kibana.png)
 
-#### Flask SocketIO Scaling + Redis
+</details>
+
+<details><summary>16. Flask SocketIO Scaling + Redis</summary>
 
 ```python
 # gunicorn with eventlet, 400 unique threads, 100 threads per second
@@ -248,7 +276,9 @@ stress_test(400,100)
 # index 300, total time taken 376.807925 s, average time taken 3.768079 s
 ```
 
-#### Distributed Flask + Redis + Nginx load balancer
+</details>
+
+<details><summary>17. Distributed Flask + Redis + Nginx load balancer</summary>
 
 ```text
 Port 80 will load balanced on 2 different servers, 5000 and 5001.
@@ -263,7 +293,9 @@ curl http://localhost/ -X GET
 Hello World! I have been seen 21 times.
 ```
 
-#### Distributed Flask SocketIO + Redis + Nginx load balancer
+</details>
+
+<details><summary>18. Distributed Flask SocketIO + Redis + Nginx load balancer</summary>
 
 ```text
 Port 80 will load balanced on 2 different servers, 5000 and 5001.
@@ -275,3 +307,26 @@ index 20, total time taken 1.310126 s, average time taken 0.131013 s
 index 30, total time taken 1.595863 s, average time taken 0.159586 s
 index 40, total time taken 1.548332 s, average time taken 0.154833 s
 ```
+
+</details>
+
+<details><summary>19. Flask + Gunicorn + ELK</summary>
+
+```html
+http://localhost:9200/_cat/indices?v
+```
+
+```text
+health status index               uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+yellow open   logstash-2018.09.30 IL6UjeHTTCKdL8be5hpOUw   5   1          0            0       460b           460b
+```
+
+```html
+http://localhost:9200/logstash-2018.09.30/_search
+```
+
+```text
+{"took":147,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":4,"max_score":1.0,"hits":[{"_index":"logstash-2018.09.30","_type":"doc","_id":"lUw4KGYBBCQZE1CyH2wT","_score":1.0,"_source":{"@timestamp":"2018-09-30T02:04:18.472Z","host":"localhost","@version":"1","port":36286,"message":"172.22.0.1 - - [30/Sep/2018:02:04:18 +0000] \"GET / HTTP/1.1\" 200 41 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36\""}},{"_index":"logstash-2018.09.30","_type":"doc","_id":"k0w4KGYBBCQZE1CyHWyY","_score":1.0,"_source":{"@timestamp":"2018-09-30T02:04:17.203Z","host":"localhost","@version":"1","port":36286,"message":"172.22.0.1 - - [30/Sep/2018:02:04:16 +0000] \"GET / HTTP/1.1\" 200 41 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36\""}},{"_index":"logstash-2018.09.30","_type":"doc","_id":"lkw4KGYBBCQZE1CyH2zP","_score":1.0,"_source":{"@timestamp":"2018-09-30T02:04:18.658Z","host":"localhost","@version":"1","port":36286,"message":"172.22.0.1 - - [30/Sep/2018:02:04:18 +0000] \"GET / HTTP/1.1\" 200 41 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36\""}},{"_index":"logstash-2018.09.30","_type":"doc","_id":"lEw4KGYBBCQZE1CyHWzg","_score":1.0,"_source":{"@timestamp":"2018-09-30T02:04:18.160Z","host":"localhost","@version":"1","port":36286,"message":"172.22.0.1 - - [30/Sep/2018:02:04:18 +0000] \"GET / HTTP/1.1\" 200 41 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36\""}}]}}
+```
+
+</details>

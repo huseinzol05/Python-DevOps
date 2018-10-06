@@ -13,16 +13,21 @@ Try to cover pretty much we know, everything Dockerize!
 9. Flask + MySQL + Rest API
 10. Flask + Postgres + Rest API
 11. Flask + Elastic Search
-12. Jupyter notebook
-13. Jupyterhub
-14. Streaming Twitter + Elastic Search + Kibana
-15. News Crawler + Luigi + Elastic Search + Kibana
-16. Flask SocketIO Scaling + Redis
-17. Distributed Flask + Redis + Nginx load balancer
-18. Distributed Flask SocketIO + Redis + Nginx load balancer
-19. Flask + Gunicorn + ELK
-20. Flask + Hadoop
-21. Mlflow + Nginx
+12. Streaming Twitter + Elastic Search + Kibana
+13. News Crawler + Luigi + Elastic Search + Kibana
+14. Flask SocketIO Scaling + Redis
+15. Distributed Flask + Redis + Nginx load balancer
+16. Distributed Flask SocketIO + Redis + Nginx load balancer
+17. Flask + Gunicorn + ELK
+18. Flask + Hadoop
+19. Mlflow + Nginx
+
+## Misc
+
+1. Elasticsearch + Kibana
+2. Elasticsearch + Cerebro
+3. Jupyter notebook
+4. Jupyterhub
 
 ## How-to Docker
 Every folders contain .yml for docker-compose. You need to install Docker-Compose first.

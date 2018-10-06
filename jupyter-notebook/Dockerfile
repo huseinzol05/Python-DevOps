@@ -1,12 +1,9 @@
 FROM ubuntu:16.04 AS base
 
 RUN apt-get update && apt-get install -y \
-    curl \
-    git \
     python3 \
     python3-pip \
-    python3-wheel \
-    portaudio19-dev
+    python3-wheel
 
 COPY requirements.txt ./
 RUN pip3 install -r requirements.txt

@@ -1,6 +1,6 @@
 version: '2.3'
 services:
-  processing:
+  sentiment-twitter-elasticsearch:
     build:
       context: ..
       target: base

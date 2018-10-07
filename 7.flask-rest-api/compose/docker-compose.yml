@@ -1,6 +1,6 @@
 version: '2.3'
 services:
-  processing:
+  flask-rest:
     build:
       context: ..
       target: base

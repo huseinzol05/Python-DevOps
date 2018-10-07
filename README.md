@@ -21,6 +21,7 @@ Try to cover pretty much we know, everything Dockerize!
 17. Flask + Gunicorn + ELK
 18. Flask + Hadoop
 19. Mlflow + Nginx
+20. Flask + Kafka
 
 ## Misc
 

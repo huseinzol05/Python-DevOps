@@ -1,6 +1,6 @@
 version: '2.3'
 services:
-  processing:
+  flask-redis:
     build:
       context: ..
       target: base

@@ -1,6 +1,6 @@
 version: '2.3'
 services:
-  processing:
+  els-kibana:
     build:
       context: ..
       target: base

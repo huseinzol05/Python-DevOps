@@ -239,7 +239,7 @@ curl localhost:9200/recipes/_search?q=title:salad -X GET
 
 </details>
 
-<details><summary>14. Streaming Twitter + Elastic Search + Kibana</summary>
+<details><summary>12. Streaming Twitter + Elastic Search + Kibana</summary>
 
 Make sure you inserted related keys in twitter-streaming.py
 
@@ -255,7 +255,7 @@ access_token_secret=""
 
 </details>
 
-<details><summary>15. News Crawler + Luigi + Elastic Search + Kibana</summary>
+<details><summary>13. News Crawler + Luigi + Elastic Search + Kibana</summary>
 
 Task automation
 
@@ -271,7 +271,7 @@ Kibana
 
 </details>
 
-<details><summary>16. Flask SocketIO Scaling + Redis</summary>
+<details><summary>14. Flask SocketIO Scaling + Redis</summary>
 
 ```python
 # gunicorn with eventlet, 400 unique threads, 100 threads per second
@@ -285,7 +285,7 @@ stress_test(400,100)
 
 </details>
 
-<details><summary>17. Distributed Flask + Redis + Nginx load balancer</summary>
+<details><summary>15. Distributed Flask + Redis + Nginx load balancer</summary>
 
 ```text
 Port 80 will load balanced on 2 different servers, 5000 and 5001.
@@ -302,7 +302,7 @@ Hello World! I have been seen 21 times.
 
 </details>
 
-<details><summary>18. Distributed Flask SocketIO + Redis + Nginx load balancer</summary>
+<details><summary>16. Distributed Flask SocketIO + Redis + Nginx load balancer</summary>
 
 ```text
 Port 80 will load balanced on 2 different servers, 5000 and 5001.
@@ -317,7 +317,7 @@ index 40, total time taken 1.548332 s, average time taken 0.154833 s
 
 </details>
 
-<details><summary>19. Flask + Gunicorn + ELK</summary>
+<details><summary>17. Flask + Gunicorn + ELK</summary>
 
 ```html
 http://localhost:9200/_cat/indices?v
@@ -338,7 +338,7 @@ http://localhost:9200/logstash-2018.09.30/_search
 
 </details>
 
-<details><summary>21. Mlflow + Nginx</summary>
+<details><summary>19. Mlflow + Nginx</summary>
 
 ![alt text](21.mlflow-nginx/mlflow.png)
 

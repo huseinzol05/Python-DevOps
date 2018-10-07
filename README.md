@@ -251,7 +251,7 @@ access_token=""
 access_token_secret=""
 ```
 
-![alt text](14.sentiment-twitter-elasticsearch/kibana.png)
+![alt text](12.sentiment-twitter-elasticsearch/kibana.png)
 
 </details>
 
@@ -259,15 +259,15 @@ access_token_secret=""
 
 Task automation
 
-![alt text](15.luigi-crawler-sentiment-elasticsearch/dependency.png)
+![alt text](13.luigi-crawler-sentiment-elasticsearch/dependency.png)
 
 localhost:8082
 
-![alt text](15.luigi-crawler-sentiment-elasticsearch/luigi.png)
+![alt text](13.luigi-crawler-sentiment-elasticsearch/luigi.png)
 
 Kibana
 
-![alt text](15.luigi-crawler-sentiment-elasticsearch/kibana.png)
+![alt text](13.luigi-crawler-sentiment-elasticsearch/kibana.png)
 
 </details>
 
@@ -340,6 +340,6 @@ http://localhost:9200/logstash-2018.09.30/_search
 
 <details><summary>19. Mlflow + Nginx</summary>
 
-![alt text](21.mlflow-nginx/mlflow.png)
+![alt text](19.mlflow-nginx/mlflow.png)
 
 </details>

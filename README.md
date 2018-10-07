@@ -38,11 +38,6 @@ To run,
 compose/build
 ```
 
-To access the bash, (open new terminal, compose/build must run)
-```bash
-compose/bash
-```
-
 To safely close
 ```bash
 compose/down

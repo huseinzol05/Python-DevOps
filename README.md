@@ -58,7 +58,7 @@ To remove all containers
 docker rm $(docker ps -aq)
 ```
 
-## How-to Request
+## How-to-Use
 
 <details><summary>1. AutoPEP8</summary>
 
@@ -331,6 +331,22 @@ http://localhost:9200/logstash-2018.09.30/_search
 ```text
 {"took":147,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":4,"max_score":1.0,"hits":[{"_index":"logstash-2018.09.30","_type":"doc","_id":"lUw4KGYBBCQZE1CyH2wT","_score":1.0,"_source":{"@timestamp":"2018-09-30T02:04:18.472Z","host":"localhost","@version":"1","port":36286,"message":"172.22.0.1 - - [30/Sep/2018:02:04:18 +0000] \"GET / HTTP/1.1\" 200 41 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36\""}},{"_index":"logstash-2018.09.30","_type":"doc","_id":"k0w4KGYBBCQZE1CyHWyY","_score":1.0,"_source":{"@timestamp":"2018-09-30T02:04:17.203Z","host":"localhost","@version":"1","port":36286,"message":"172.22.0.1 - - [30/Sep/2018:02:04:16 +0000] \"GET / HTTP/1.1\" 200 41 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36\""}},{"_index":"logstash-2018.09.30","_type":"doc","_id":"lkw4KGYBBCQZE1CyH2zP","_score":1.0,"_source":{"@timestamp":"2018-09-30T02:04:18.658Z","host":"localhost","@version":"1","port":36286,"message":"172.22.0.1 - - [30/Sep/2018:02:04:18 +0000] \"GET / HTTP/1.1\" 200 41 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36\""}},{"_index":"logstash-2018.09.30","_type":"doc","_id":"lEw4KGYBBCQZE1CyHWzg","_score":1.0,"_source":{"@timestamp":"2018-09-30T02:04:18.160Z","host":"localhost","@version":"1","port":36286,"message":"172.22.0.1 - - [30/Sep/2018:02:04:18 +0000] \"GET / HTTP/1.1\" 200 41 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36\""}}]}}
 ```
+
+</details>
+
+<details><summary>18. Flask + Hadoop</summary>
+
+```bash
+curl --form file=@18.flask-hadoop/text.txt localhost:5000/lowercase
+```
+
+```text
+["husein\nbin\nzolkepli\n"]
+```
+
+![alt text](18.flask-hadoop/screenshot1.png)
+
+![alt text](18.flask-hadoop/screenshot2.png)
 
 </details>
 

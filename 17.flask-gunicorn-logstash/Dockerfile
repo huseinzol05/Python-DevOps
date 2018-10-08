@@ -1,8 +1,6 @@
 FROM ubuntu:16.04 AS base
 
 RUN apt-get update && apt-get install -y \
-    curl \
-    git \
     python3 \
     python3-pip \
     python3-wheel \
@@ -21,13 +19,7 @@ RUN apt-get update && apt-get install kibana
 
 RUN apt-get update && apt-get install logstash
 
-RUN pip3 install Flask
-
-RUN pip3 install python-json-logger
-
-RUN pip3 install gunicorn
-
-RUN pip3 install python3-logstash
+RUN pip3 install Flask python-json-logger gunicorn python3-logstash
 
 WORKDIR /app
 

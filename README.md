@@ -59,7 +59,7 @@ To remove all containers
 docker rm $(docker ps -aq)
 ```
 
-## How-to-Use
+## How-to
 
 <details><summary>1. AutoPEP8</summary>
 

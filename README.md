@@ -1,5 +1,6 @@
-# Python-Devops
-Try to cover pretty much we know, everything Dockerize!
+# Python-DevOps
+
+Gathers Python stack for DevOps, everything is Docker!
 
 ## Covered
 1. AutoPEP8

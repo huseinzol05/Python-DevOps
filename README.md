@@ -36,6 +36,7 @@ Gathers Python stack for DevOps, everything is Docker!
 1. Flask SocketIO with Redis
 2. Multiple Flask with Nginx Loadbalancer
 3. Multiple Flask SocketIO with Nginx Loadbalancer
+4. RabbitMQ and multiple Celery with Flask
 
 ### Big data piping
 

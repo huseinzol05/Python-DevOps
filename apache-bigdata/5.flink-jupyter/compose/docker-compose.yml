@@ -1,0 +1,19 @@
+version: '2.3'
+services:
+  tf-flink:
+    build:
+      context: ..
+    command: compose/develop
+    environment:
+      PYTHONPATH: .
+    volumes:
+      - ../:/app
+    expose:
+      - '6123'
+      - '6121'
+      - '6122'
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=localhost
+    ports:
+      - '8090:8081'
+      - '9090:9090'

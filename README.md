@@ -49,6 +49,7 @@ Gathers Python stack for DevOps, everything is Docker!
 2. Flask with Kafka
 3. Flask with Hadoop Hive
 4. PySpark with Jupyter and Hadoop
+5. Flink with Jupyter
 
 ### Unit test
 

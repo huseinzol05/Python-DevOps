@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bash jobmanager.sh
+bash taskmanager.sh
+jupyter notebook --ip=0.0.0.0 --port=9090 --allow-root

@@ -7,17 +7,20 @@ import eventlet
 
 eventlet.monkey_patch()
 app = Flask(__name__)
-socketio = SocketIO(app, message_queue='redis://redis')
+socketio = SocketIO(app, message_queue = 'redis://redis')
 
-@socketio.on('connect', namespace='/live')
+
+@socketio.on('connect', namespace = '/live')
 def test_connect():
-    emit('response', {'data': 'OK'},broadcast=True)
+    emit('response', {'data': 'OK'}, broadcast = True)
 
-@socketio.on('disconnect', namespace='/live')
+
+@socketio.on('disconnect', namespace = '/live')
 def test_disconnect():
     print('Client disconnected')
 
-@socketio.on('event', namespace='/live')
+
+@socketio.on('event', namespace = '/live')
 def test_message(message):
-    print('incoming from %s'%(message['id']))
-    emit('event',{'data': 'Hello World!'},broadcast=True)
+    print('incoming from %s' % (message['id']))
+    emit('event', {'data': 'Hello World!'}, broadcast = True)

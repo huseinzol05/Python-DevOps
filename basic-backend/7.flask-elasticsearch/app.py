@@ -1,50 +1,41 @@
 from flask import Flask, request
 from elasticsearch import Elasticsearch
+
 app = Flask(__name__)
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 import requests
 import json
 from bs4 import BeautifulSoup
 
+
 def create_index(es_object, index_name):
     created = False
     # index settings
     settings = {
-        "settings": {
-            "number_of_shards": 1,
-            "number_of_replicas": 0
-        },
-        "mappings": {
-            "salads": {
-                "dynamic": "strict",
-                "properties": {
-                    "title": {
-                        "type": "text"
+        'settings': {'number_of_shards': 1, 'number_of_replicas': 0},
+        'mappings': {
+            'salads': {
+                'dynamic': 'strict',
+                'properties': {
+                    'title': {'type': 'text'},
+                    'submitter': {'type': 'text'},
+                    'description': {'type': 'text'},
+                    'calories': {'type': 'integer'},
+                    'ingredients': {
+                        'type': 'nested',
+                        'properties': {'step': {'type': 'text'}},
                     },
-                    "submitter": {
-                        "type": "text"
-                    },
-                    "description": {
-                        "type": "text"
-                    },
-                    "calories": {
-                        "type": "integer"
-                    },
-                    "ingredients": {
-                        "type": "nested",
-                        "properties": {
-                            "step": {"type": "text"}
-                        }
-                    },
-                }
+                },
             }
-        }
+        },
     }
 
     try:
         if not es_object.indices.exists(index_name):
             # Ignore 400 means to ignore "Index Already Exist" error.
-            es_object.indices.create(index=index_name, ignore=400, body=settings)
+            es_object.indices.create(
+                index = index_name, ignore = 400, body = settings
+            )
             print('Created Index')
         created = True
     except Exception as ex:
@@ -52,10 +43,13 @@ def create_index(es_object, index_name):
     finally:
         return created
 
+
 def store_record(elastic_object, index_name, record):
     is_stored = True
     try:
-        outcome = elastic_object.index(index=index_name, doc_type='salads', body=record)
+        outcome = elastic_object.index(
+            index = index_name, doc_type = 'salads', body = record
+        )
         print(outcome)
     except Exception as ex:
         print('Error in indexing data')
@@ -63,6 +57,7 @@ def store_record(elastic_object, index_name, record):
         is_stored = False
     finally:
         return is_stored
+
 
 def parse(u):
     title = '-'
@@ -73,7 +68,7 @@ def parse(u):
     rec = {}
 
     try:
-        r = requests.get(u, headers=headers)
+        r = requests.get(u, headers = headers)
 
         if r.status_code == 200:
             html = r.text
@@ -95,11 +90,16 @@ def parse(u):
             if ingredients_section:
                 for ingredient in ingredients_section:
                     ingredient_text = ingredient.text.strip()
-                    if 'Add all ingredients to list' not in ingredient_text and ingredient_text != '':
+                    if (
+                        'Add all ingredients to list' not in ingredient_text
+                        and ingredient_text != ''
+                    ):
                         ingredients.append({'step': ingredient.text.strip()})
 
             if description_section:
-                description = description_section[0].text.strip().replace('"', '')
+                description = (
+                    description_section[0].text.strip().replace('"', '')
+                )
 
             if submitter_section:
                 submit_by = submitter_section[0].text.strip()
@@ -107,20 +107,26 @@ def parse(u):
             if title_section:
                 title = title_section[0].text
 
-            rec = {'title': title, 'submitter': submit_by, 'description': description, 'calories': calories,
-                   'ingredients': ingredients}
+            rec = {
+                'title': title,
+                'submitter': submit_by,
+                'description': description,
+                'calories': calories,
+                'ingredients': ingredients,
+            }
     except Exception as ex:
         print('Exception while parsing')
         print(str(ex))
     finally:
         return json.dumps(rec)
 
+
 headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
-        'Pragma': 'no-cache'
-        }
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+    'Pragma': 'no-cache',
+}
 url = 'https://www.allrecipes.com/recipes/96/salad/'
-r = requests.get(url, headers=headers)
+r = requests.get(url, headers = headers)
 if r.status_code == 200:
     html = r.text
     soup = BeautifulSoup(html, 'lxml')
@@ -132,9 +138,11 @@ if r.status_code == 200:
             out = store_record(es, 'recipes', result)
             print(no, 'Data indexed successfully')
 
+
 @app.route('/')
 def hello_world():
     return 'Hey, we have Flask with Elastic Search in a Docker container!'
+
 
 @app.route('/ping')
 def ping():
@@ -145,5 +153,6 @@ def ping():
         es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
         return 'cannot connect to elastic search, reconnecting..'
 
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0',port=5000)
+    app.run(debug = True, host = '0.0.0.0', port = 5000)

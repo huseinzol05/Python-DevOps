@@ -4,31 +4,36 @@
 
 from enum import Enum
 
+
 def make_safe_label(label):
     """Avoid name clashes with GraphViz reserved words such as 'graph'."""
-    unsafe_words = ("digraph", "graph", "cluster", "subgraph")
+    unsafe_words = ('digraph', 'graph', 'cluster', 'subgraph')
     out = label
     for word in unsafe_words:
-        out = out.replace(word, "%sX" % word)
+        out = out.replace(word, '%sX' % word)
     return out.replace('.', '__').replace('*', '')
+
 
 class Flavor(Enum):
     """Flavor describes the kind of object a node represents."""
-    UNSPECIFIED  = "---"         # as it says on the tin
-    UNKNOWN      = "???"         # not determined by analysis (wildcard)
 
-    NAMESPACE    = "namespace"  # node representing a namespace
-    ATTRIBUTE    = "attribute"  # attr of something, but not known if class or func.
+    UNSPECIFIED = '---'  # as it says on the tin
+    UNKNOWN = '???'  # not determined by analysis (wildcard)
 
-    IMPORTEDITEM = "import"     # imported item of unanalyzed type
+    NAMESPACE = 'namespace'  # node representing a namespace
+    ATTRIBUTE = (
+        'attribute'
+    )  # attr of something, but not known if class or func.
 
-    MODULE       = "module"
-    CLASS        = "class"
-    FUNCTION     = "function"
-    METHOD       = "method"     # instance method
-    STATICMETHOD = "staticmethod"
-    CLASSMETHOD  = "classmethod"
-    NAME         = "name"       # Python name (e.g. "x" in "x = 42")
+    IMPORTEDITEM = 'import'  # imported item of unanalyzed type
+
+    MODULE = 'module'
+    CLASS = 'class'
+    FUNCTION = 'function'
+    METHOD = 'method'  # instance method
+    STATICMETHOD = 'staticmethod'
+    CLASSMETHOD = 'classmethod'
+    NAME = 'name'  # Python name (e.g. "x" in "x = 42")
 
     # Flavors have a partial ordering in specificness of the information.
     #
@@ -49,6 +54,7 @@ class Flavor(Enum):
 
     def __repr__(self):
         return self.value
+
 
 class Node:
     """A node is an object in the call graph.
@@ -89,7 +95,9 @@ class Node:
         self.ast_node = ast_node
         self.filename = filename
         self.flavor = flavor
-        self.defined = namespace is None  # assume that unknown nodes are defined
+        self.defined = (
+            namespace is None
+        )  # assume that unknown nodes are defined
 
     def get_short_name(self):
         """Return the short name (i.e. excluding the namespace), of this Node.
@@ -107,7 +115,11 @@ class Node:
             return '*.' + self.name
         else:
             if self.get_level() >= 1 and self.ast_node is not None:
-                return "%s\\n(%s:%d)" % (self.name, self.filename, self.ast_node.lineno)
+                return '%s\\n(%s:%d)' % (
+                    self.name,
+                    self.filename,
+                    self.ast_node.lineno,
+                )
             else:
                 return self.name
 
@@ -119,9 +131,19 @@ class Node:
         else:
             if self.get_level() >= 1:
                 if self.ast_node is not None:
-                    return "%s\\n\\n(%s:%d,\\n%s in %s)" % (self.name, self.filename, self.ast_node.lineno, repr(self.flavor), self.namespace)
+                    return '%s\\n\\n(%s:%d,\\n%s in %s)' % (
+                        self.name,
+                        self.filename,
+                        self.ast_node.lineno,
+                        repr(self.flavor),
+                        self.namespace,
+                    )
                 else:
-                    return "%s\\n\\n(%s in %s)" % (self.name, repr(self.flavor), self.namespace)
+                    return '%s\\n\\n(%s in %s)' % (
+                        self.name,
+                        repr(self.flavor),
+                        self.namespace,
+                    )
             else:
                 return self.name
 
@@ -145,17 +167,17 @@ class Node:
         Top level is level 0.
 
         """
-        if self.namespace == "":
+        if self.namespace == '':
             return 0
         else:
             return 1 + self.namespace.count('.')
 
     def get_toplevel_namespace(self):
         """Return the name of the top-level namespace of this node, or "" if none."""
-        if self.namespace == "":
-            return ""
+        if self.namespace == '':
+            return ''
         if self.namespace is None:  # group all unknowns in one namespace, "*"
-            return "*"
+            return '*'
 
         idx = self.namespace.find('.')
         if idx > -1:

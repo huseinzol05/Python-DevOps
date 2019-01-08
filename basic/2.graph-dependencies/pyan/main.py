@@ -17,64 +17,147 @@ from .analyzer import CallGraphVisitor
 from .visgraph import VisualGraph
 from .writers import TgfWriter, DotWriter, YedWriter
 
+
 def main():
     usage = """usage: %prog FILENAME... [--dot|--tgf|--yed]"""
-    desc = ('Analyse one or more Python source files and generate an'
-            'approximate call graph of the modules, classes and functions'
-            ' within them.')
-    parser = OptionParser(usage=usage, description=desc)
-    parser.add_option("--dot",
-                      action="store_true", default=False,
-                      help="output in GraphViz dot format")
-    parser.add_option("--tgf",
-                      action="store_true", default=False,
-                      help="output in Trivial Graph Format")
-    parser.add_option("--yed",
-                      action="store_true", default=False,
-                      help="output in yEd GraphML Format")
-    parser.add_option("-f", "--file", dest="filename",
-                      help="write graph to FILE", metavar="FILE", default=None)
-    parser.add_option("-l", "--log", dest="logname",
-                      help="write log to LOG", metavar="LOG")
-    parser.add_option("-v", "--verbose",
-                      action="store_true", default=False, dest="verbose",
-                      help="verbose output")
-    parser.add_option("-V", "--very-verbose",
-                      action="store_true", default=False, dest="very_verbose",
-                      help="even more verbose output (mainly for debug)")
-    parser.add_option("-d", "--defines",
-                      action="store_true", default=True, dest="draw_defines",
-                      help="add edges for 'defines' relationships [default]")
-    parser.add_option("-n", "--no-defines",
-                      action="store_false", default=True, dest="draw_defines",
-                      help="do not add edges for 'defines' relationships")
-    parser.add_option("-u", "--uses",
-                      action="store_true", default=True, dest="draw_uses",
-                      help="add edges for 'uses' relationships [default]")
-    parser.add_option("-N", "--no-uses",
-                      action="store_false", default=True, dest="draw_uses",
-                      help="do not add edges for 'uses' relationships")
-    parser.add_option("-c", "--colored",
-                      action="store_true", default=False, dest="colored",
-                      help="color nodes according to namespace [dot only]")
-    parser.add_option("-G", "--grouped-alt",
-                      action="store_true", default=False, dest="grouped_alt",
-                      help="suggest grouping by adding invisible defines edges [only useful with --no-defines]")
-    parser.add_option("-g", "--grouped",
-                      action="store_true", default=False, dest="grouped",
-                      help="group nodes (create subgraphs) according to namespace [dot only]")
-    parser.add_option("-e", "--nested-groups",
-                      action="store_true", default=False, dest="nested_groups",
-                      help="create nested groups (subgraphs) for nested namespaces (implies -g) [dot only]")
-    parser.add_option("--dot-rankdir", default="TB", dest="rankdir",
-                      help=(
-                        "specifies the dot graph 'rankdir' property for "
-                        "controlling the direction of the graph. "
-                        "Allowed values: ['TB', 'LR', 'BT', 'RL']. "
-                        "[dot only]"))
-    parser.add_option("-a", "--annotated",
-                      action="store_true", default=False, dest="annotated",
-                      help="annotate with module and source line number")
+    desc = (
+        'Analyse one or more Python source files and generate an'
+        'approximate call graph of the modules, classes and functions'
+        ' within them.'
+    )
+    parser = OptionParser(usage = usage, description = desc)
+    parser.add_option(
+        '--dot',
+        action = 'store_true',
+        default = False,
+        help = 'output in GraphViz dot format',
+    )
+    parser.add_option(
+        '--tgf',
+        action = 'store_true',
+        default = False,
+        help = 'output in Trivial Graph Format',
+    )
+    parser.add_option(
+        '--yed',
+        action = 'store_true',
+        default = False,
+        help = 'output in yEd GraphML Format',
+    )
+    parser.add_option(
+        '-f',
+        '--file',
+        dest = 'filename',
+        help = 'write graph to FILE',
+        metavar = 'FILE',
+        default = None,
+    )
+    parser.add_option(
+        '-l',
+        '--log',
+        dest = 'logname',
+        help = 'write log to LOG',
+        metavar = 'LOG',
+    )
+    parser.add_option(
+        '-v',
+        '--verbose',
+        action = 'store_true',
+        default = False,
+        dest = 'verbose',
+        help = 'verbose output',
+    )
+    parser.add_option(
+        '-V',
+        '--very-verbose',
+        action = 'store_true',
+        default = False,
+        dest = 'very_verbose',
+        help = 'even more verbose output (mainly for debug)',
+    )
+    parser.add_option(
+        '-d',
+        '--defines',
+        action = 'store_true',
+        default = True,
+        dest = 'draw_defines',
+        help = "add edges for 'defines' relationships [default]",
+    )
+    parser.add_option(
+        '-n',
+        '--no-defines',
+        action = 'store_false',
+        default = True,
+        dest = 'draw_defines',
+        help = "do not add edges for 'defines' relationships",
+    )
+    parser.add_option(
+        '-u',
+        '--uses',
+        action = 'store_true',
+        default = True,
+        dest = 'draw_uses',
+        help = "add edges for 'uses' relationships [default]",
+    )
+    parser.add_option(
+        '-N',
+        '--no-uses',
+        action = 'store_false',
+        default = True,
+        dest = 'draw_uses',
+        help = "do not add edges for 'uses' relationships",
+    )
+    parser.add_option(
+        '-c',
+        '--colored',
+        action = 'store_true',
+        default = False,
+        dest = 'colored',
+        help = 'color nodes according to namespace [dot only]',
+    )
+    parser.add_option(
+        '-G',
+        '--grouped-alt',
+        action = 'store_true',
+        default = False,
+        dest = 'grouped_alt',
+        help = 'suggest grouping by adding invisible defines edges [only useful with --no-defines]',
+    )
+    parser.add_option(
+        '-g',
+        '--grouped',
+        action = 'store_true',
+        default = False,
+        dest = 'grouped',
+        help = 'group nodes (create subgraphs) according to namespace [dot only]',
+    )
+    parser.add_option(
+        '-e',
+        '--nested-groups',
+        action = 'store_true',
+        default = False,
+        dest = 'nested_groups',
+        help = 'create nested groups (subgraphs) for nested namespaces (implies -g) [dot only]',
+    )
+    parser.add_option(
+        '--dot-rankdir',
+        default = 'TB',
+        dest = 'rankdir',
+        help = (
+            "specifies the dot graph 'rankdir' property for "
+            'controlling the direction of the graph. '
+            "Allowed values: ['TB', 'LR', 'BT', 'RL']. "
+            '[dot only]'
+        ),
+    )
+    parser.add_option(
+        '-a',
+        '--annotated',
+        action = 'store_true',
+        default = False,
+        dest = 'annotated',
+        help = 'annotate with module and source line number',
+    )
 
     options, args = parser.parse_args()
     filenames = [fn2 for fn in args for fn2 in glob(fn)]
@@ -85,13 +168,14 @@ def main():
         options.grouped = True
 
     graph_options = {
-            'draw_defines': options.draw_defines,
-            'draw_uses': options.draw_uses,
-            'colored': options.colored,
-            'grouped_alt' : options.grouped_alt,
-            'grouped': options.grouped,
-            'nested_groups': options.nested_groups,
-            'annotated': options.annotated}
+        'draw_defines': options.draw_defines,
+        'draw_uses': options.draw_uses,
+        'colored': options.colored,
+        'grouped_alt': options.grouped_alt,
+        'grouped': options.grouped,
+        'nested_groups': options.nested_groups,
+        'annotated': options.annotated,
+    }
 
     # TODO: use an int argument for verbosity
     logger = logging.getLogger(__name__)
@@ -107,24 +191,25 @@ def main():
         logger.addHandler(handler)
 
     v = CallGraphVisitor(filenames, logger)
-    graph = VisualGraph.from_visitor(v, options=graph_options, logger=logger)
+    graph = VisualGraph.from_visitor(
+        v, options = graph_options, logger = logger
+    )
 
     if options.dot:
         writer = DotWriter(
-                graph,
-                options=['rankdir='+options.rankdir],
-                output=options.filename,
-                logger=logger)
+            graph,
+            options = ['rankdir=' + options.rankdir],
+            output = options.filename,
+            logger = logger,
+        )
         writer.run()
 
     if options.tgf:
-        writer = TgfWriter(
-                graph, output=options.filename, logger=logger)
+        writer = TgfWriter(graph, output = options.filename, logger = logger)
         writer.run()
 
     if options.yed:
-        writer = YedWriter(
-                graph, output=options.filename, logger=logger)
+        writer = YedWriter(graph, output = options.filename, logger = logger)
         writer.run()
 
 

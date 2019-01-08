@@ -7,24 +7,24 @@ import logging
 
 
 class Writer(object):
-    def __init__(self, graph, output=None, logger=None, tabstop=4):
+    def __init__(self, graph, output = None, logger = None, tabstop = 4):
         self.graph = graph
         self.output = output
         self.logger = logger or logging.getLogger(__name__)
         self.indent_level = 0
-        self.tabstop = tabstop*' '
+        self.tabstop = tabstop * ' '
 
     def log(self, msg):
         self.logger.info(msg)
 
-    def indent(self, level=1):
+    def indent(self, level = 1):
         self.indent_level += level
 
-    def dedent(self, level=1):
+    def dedent(self, level = 1):
         self.indent_level -= level
 
     def write(self, line):
-        self.outstream.write(self.tabstop*self.indent_level+line+'\n')
+        self.outstream.write(self.tabstop * self.indent_level + line + '\n')
 
     def run(self):
         self.log('%s running' % type(self))
@@ -79,11 +79,8 @@ class Writer(object):
 
 
 class TgfWriter(Writer):
-    def __init__(self, graph, output=None, logger=None):
-        Writer.__init__(
-                self, graph,
-                output=output,
-                logger=logger)
+    def __init__(self, graph, output = None, logger = None):
+        Writer.__init__(self, graph, output = output, logger = logger)
         self.i = 1
         self.id_map = {}
 
@@ -98,18 +95,18 @@ class TgfWriter(Writer):
     def write_edge(self, edge):
         flavor = 'U' if edge.flavor == 'uses' else 'D'
         self.write(
-                '%s %s %s' %
-                (self.id_map[edge.source], self.id_map[edge.target], flavor))
+            '%s %s %s'
+            % (self.id_map[edge.source], self.id_map[edge.target], flavor)
+        )
 
 
 class DotWriter(Writer):
-    def __init__(self, graph,
-                 options=None, output=None, logger=None, tabstop=4):
+    def __init__(
+        self, graph, options = None, output = None, logger = None, tabstop = 4
+    ):
         Writer.__init__(
-                self, graph,
-                output=output,
-                logger=logger,
-                tabstop=tabstop)
+            self, graph, output = output, logger = logger, tabstop = tabstop
+        )
         options = options or []
         if graph.grouped:
             options += ['clusterrank="local"']
@@ -124,16 +121,15 @@ class DotWriter(Writer):
     def start_subgraph(self, graph):
         self.log('Start subgraph %s' % graph.label)
         # Name must begin with "cluster" to be recognized as a cluster by GraphViz.
-        self.write(
-                "subgraph cluster_%s {\n" % graph.id)
+        self.write('subgraph cluster_%s {\n' % graph.id)
         self.indent()
 
         # translucent gray (no hue to avoid visual confusion with any
         # group of colored nodes)
         self.write(
             'graph [style="filled,rounded",'
-            'fillcolor="#80808018", label="%s"];'
-            % graph.label)
+            'fillcolor="#80808018", label="%s"];' % graph.label
+        )
 
     def finish_subgraph(self, graph):
         self.log('Finish subgraph %s' % graph.label)
@@ -147,35 +143,38 @@ class DotWriter(Writer):
             '%s [label="%s", style="filled", fillcolor="%s",'
             ' fontcolor="%s", group="%s"];'
             % (
-                node.id, node.label,
-                node.fill_color, node.text_color, node.group))
+                node.id,
+                node.label,
+                node.fill_color,
+                node.text_color,
+                node.group,
+            )
+        )
 
     def write_edge(self, edge):
         source = edge.source
         target = edge.target
-        color  = edge.color
+        color = edge.color
         if edge.flavor == 'defines':
             self.write(
                 '    %s -> %s [style="dashed",'
-                ' color="%s"];'
-                % (source.id, target.id, color))
-        else: # edge.flavor == 'uses':
+                ' color="%s"];' % (source.id, target.id, color)
+            )
+        else:  # edge.flavor == 'uses':
             self.write(
                 '    %s -> %s [style="solid",'
-                ' color="%s"];'
-                % (source.id, target.id, color))
+                ' color="%s"];' % (source.id, target.id, color)
+            )
 
     def finish_graph(self):
         self.write('}')  # terminate "digraph G {"
 
 
 class YedWriter(Writer):
-    def __init__(self, graph, output=None, logger=None, tabstop=2):
+    def __init__(self, graph, output = None, logger = None, tabstop = 2):
         Writer.__init__(
-                self, graph,
-                output=output,
-                logger=logger,
-                tabstop=tabstop)
+            self, graph, output = output, logger = logger, tabstop = tabstop
+        )
         self.grouped = graph.grouped
         self.indent_level = 0
         self.edge_id = 0
@@ -183,18 +182,19 @@ class YedWriter(Writer):
     def start_graph(self):
         self.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>')
         self.write(
-                '<graphml xmlns="http://graphml.graphdrawing.org/xmlns"'
-                ' xmlns:java='
-                '"http://www.yworks.com/xml/yfiles-common/1.0/java"'
-                ' xmlns:sys='
-                '"http://www.yworks.com/xml/yfiles-common/markup/primitives'
-                '/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/'
-                'markup/2.0" xmlns:xsi="http://www.w3.org/2001/'
-                'XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/'
-                'graphml" xmlns:yed="http://www.yworks.com/xml/yed/3"'
-                ' xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns'
-                ' http://www.yworks.com/xml/schema/graphml/1.1/'
-                'ygraphml.xsd">')
+            '<graphml xmlns="http://graphml.graphdrawing.org/xmlns"'
+            ' xmlns:java='
+            '"http://www.yworks.com/xml/yfiles-common/1.0/java"'
+            ' xmlns:sys='
+            '"http://www.yworks.com/xml/yfiles-common/markup/primitives'
+            '/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/'
+            'markup/2.0" xmlns:xsi="http://www.w3.org/2001/'
+            'XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/'
+            'graphml" xmlns:yed="http://www.yworks.com/xml/yed/3"'
+            ' xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns'
+            ' http://www.yworks.com/xml/schema/graphml/1.1/'
+            'ygraphml.xsd">'
+        )
         self.indent()
         self.write('<key for="node" id="d0" yfiles.type="nodegraphics"/>')
         self.write('<key for="edge" id="d1" yfiles.type="edgegraphics"/>')
@@ -215,9 +215,10 @@ class YedWriter(Writer):
         self.write('<y:GroupNode>')
         self.indent()
         self.write('<y:Fill color="#CCCCCC" transparent="false"/>')
-        self.write('<y:NodeLabel modelName="internal" modelPosition="t" '
-                   'alignment="right">%s</y:NodeLabel>'
-                   % graph.label)
+        self.write(
+            '<y:NodeLabel modelName="internal" modelPosition="t" '
+            'alignment="right">%s</y:NodeLabel>' % graph.label
+        )
         self.write('<y:Shape type="roundrectangle"/>')
         self.dedent()
         self.write('</y:GroupNode>')
@@ -239,20 +240,19 @@ class YedWriter(Writer):
 
     def write_node(self, node):
         self.log('Write node %s' % node.label)
-        width = 20 + 10*len(node.label)
+        width = 20 + 10 * len(node.label)
         self.write('<node id="%s">' % node.id)
         self.indent()
         self.write('<data key="d0">')
         self.indent()
         self.write('<y:ShapeNode>')
         self.indent()
-        self.write('<y:Geometry height="%s" width="%s"/>' % ("30", width))
-        self.write('<y:Fill color="%s" transparent="false"/>'
-                   % node.fill_color)
-        self.write('<y:BorderStyle color="#000000" type="line" '
-                   'width="1.0"/>')
-        self.write('<y:NodeLabel>%s</y:NodeLabel>'
-                   % node.label)
+        self.write('<y:Geometry height="%s" width="%s"/>' % ('30', width))
+        self.write('<y:Fill color="%s" transparent="false"/>' % node.fill_color)
+        self.write(
+            '<y:BorderStyle color="#000000" type="line" ' 'width="1.0"/>'
+        )
+        self.write('<y:NodeLabel>%s</y:NodeLabel>' % node.label)
         self.write('<y:Shape type="ellipse"/>')
         self.dedent()
         self.write('</y:ShapeNode>')
@@ -266,21 +266,24 @@ class YedWriter(Writer):
         source = edge.source
         target = edge.target
         self.write(
-                '<edge id="%s" source="%s" target="%s">'
-                % (self.edge_id, source.id, target.id))
+            '<edge id="%s" source="%s" target="%s">'
+            % (self.edge_id, source.id, target.id)
+        )
         self.indent()
         self.write('<data key="d1">')
         self.indent()
         self.write('<y:PolyLineEdge>')
         self.indent()
         if edge.flavor == 'defines':
-            self.write('<y:LineStyle color="%s" '
-                       'type="dashed" width="1.0"/>'
-                       % edge.color)
+            self.write(
+                '<y:LineStyle color="%s" '
+                'type="dashed" width="1.0"/>' % edge.color
+            )
         else:
-            self.write('<y:LineStyle color="%s" '
-                       'type="line" width="1.0"/>'
-                       % edge.color)
+            self.write(
+                '<y:LineStyle color="%s" '
+                'type="line" width="1.0"/>' % edge.color
+            )
         self.write('<y:Arrows source="none" target="standard"/>')
         self.write('<y:BendStyle smoothed="true"/>')
         self.dedent()

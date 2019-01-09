@@ -59,12 +59,13 @@ Gathers Python stack for DevOps, everything is Docker!
 
 1. Locust
 
-### Miscellaneous
+### Miscellaneous (huseinhouse collection)
 
 1. Elasticsearch + Kibana
 2. Elasticsearch + Cerebro
 3. Jupyter notebook
 4. Jupyterhub
+5. Hadoop cluster + Luigi + Jupyter Notebook
 
 ## How-to Docker
 Every folders contain .yml for docker-compose. You need to install Docker-Compose first.

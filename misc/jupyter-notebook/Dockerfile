@@ -1,16 +1,17 @@
-FROM ubuntu:16.04 AS base
+FROM debian:stretch-slim AS base
 
 RUN apt-get update && apt-get install -y \
     python3 \
-    python3-pip \
-    python3-wheel
+    python3-pip
 
-COPY requirements.txt ./
-RUN pip3 install -r requirements.txt
+RUN pip3 install scipy matplotlib seaborn numpy sklearn scikit-learn tensorflow jupyter
 
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
-WORKDIR /app
+RUN jupyter notebook --generate-config
 
-COPY . /app
+RUN echo "" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py
+
+WORKDIR /app

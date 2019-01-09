@@ -4,7 +4,7 @@ services:
     build:
       context: ..
       target: base
-    command: jupyter nteract --ip=0.0.0.0 --port=8080 --allow-root
+    command: jupyter notebook --ip=0.0.0.0 --port=8080 --allow-root
     environment:
       PYTHONPATH: .
     ports:

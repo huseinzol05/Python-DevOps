@@ -42,6 +42,7 @@ Gathers Python stack for DevOps, everything is Docker!
 
 1. Streaming Tweepy to Elasticsearch
 2. Scheduled crawler using Luigi Spotify to Elasticsearch
+3. Airflow to Elasticsearch
 
 ### [Apache big data](apache-bigdata)
 

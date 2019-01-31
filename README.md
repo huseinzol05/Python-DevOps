@@ -14,12 +14,12 @@ Gathers Python stack for DevOps, everything is Docker!
   * [Stress test](https://github.com/huseinzol05/Python-DevOps#stress-test)
   * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
 
-### Basic Python
+### [Basic Python](basic)
 
 1. AutoPEP8
 2. Graph function dependencies
 
-### Basic Backend
+### [Basic Backend](basic-backend)
 
 1. Flask
 2. Flask with MongoDB
@@ -31,19 +31,19 @@ Gathers Python stack for DevOps, everything is Docker!
 8. Flask Logstash with Gunicorn
 9. MLFlow with Nginx reversed proxy
 
-### Scaling Backend
+### [Scaling Backend](scaling-backend)
 
 1. Flask SocketIO with Redis
 2. Multiple Flask with Nginx Loadbalancer
 3. Multiple Flask SocketIO with Nginx Loadbalancer
 4. RabbitMQ and multiple Celery with Flask
 
-### Big data piping
+### [Big data piping](piping)
 
 1. Streaming Tweepy to Elasticsearch
 2. Scheduled crawler using Luigi Spotify to Elasticsearch
 
-### Apache big data
+### [Apache big data](apache-bigdata)
 
 1. Flask with Hadoop
 2. Flask with Kafka
@@ -51,15 +51,15 @@ Gathers Python stack for DevOps, everything is Docker!
 4. PySpark with Jupyter and Hadoop
 5. Flink with Jupyter
 
-### Unit test
+### [Unit test](unit-test)
 
 1. Pytest
 
-### Stress test
+### [Stress test](stresstest)
 
 1. Locust
 
-### Miscellaneous (huseinhouse collection)
+### [Miscellaneous (huseinhouse collection)](misc)
 
 1. Elasticsearch + Kibana
 2. Elasticsearch + Cerebro

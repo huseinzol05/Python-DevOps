@@ -7,6 +7,8 @@ import numpy as np
 from datetime import datetime, timedelta
 from airflow.models import DAG
 from airflow.operators.python_operator import PythonOperator
+import os
+import logging
 
 DAG = DAG(
     dag_id = 'sentiment_to_elastic',
@@ -46,20 +48,20 @@ batch_size = 32
 
 
 def push_sentiment(**context):
-    g_sentiment = load_graph('../sentiment.pb')
+    g_sentiment = load_graph('sentiment.pb')
     x_sentiment = g_sentiment.get_tensor_by_name('import/Placeholder:0')
     logits_sentiment = g_sentiment.get_tensor_by_name('import/logits:0')
     sess_sentiment = tf.InteractiveSession(graph = g_sentiment)
 
-    with open('../fast-text-sentiment.json') as fopen:
+    with open('fast-text-sentiment.json') as fopen:
         dict_sentiment = json.load(fopen)
 
-    with open('../big-text.txt') as fopen:
+    with open('big-text.txt') as fopen:
         texts = list(filter(None, fopen.read().split('\n')))
     results = []
 
     for i in range(0, len(texts), batch_size):
-        batch_x_text = texts[i : min(i + self.batch_size, len(texts))]
+        batch_x_text = texts[i : min(i + batch_size, len(texts))]
         batch_x_text = [clearstring(t) for t in batch_x_text]
         batch_x = str_idx(batch_x_text, dict_sentiment['dictionary'], 100)
         output_sentiment = sess_sentiment.run(
@@ -86,12 +88,12 @@ def pull_to_elastic(**kwargs):
     sentiments = ti.xcom_pull(task_ids = 'push_sentiment', key = 'sentiment')
     es = Elasticsearch()
     for i in range(0, len(sentiments), batch_size):
-        batch = sentiments[index : min(i + batch_size, len(sentiments))]
+        batch = sentiments[i : min(i + batch_size, len(sentiments))]
         actions = [
             {
                 '_index': 'test_index',
                 '_type': 'text',
-                '_id': batch[j]['text'],
+                '_id': '%d-text' % (j + i),
                 '_source': batch[j],
             }
             for j in range(len(batch))

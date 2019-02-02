@@ -2,9 +2,11 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
+import logging
 
 
 def print_hello():
+    logging.info('hello world!')
     return 'Hello world!'
 
 

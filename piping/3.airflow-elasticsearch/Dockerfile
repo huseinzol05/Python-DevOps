@@ -19,9 +19,13 @@ RUN pip3 install Flask apache-airflow elasticsearch
 
 RUN pip3 install tensorflow
 
+RUN pip3 install elasticsearch-dsl
+
 WORKDIR /app
 
 COPY . /app
+
+RUN apt-get install supervisor -y
 
 RUN cp elasticsearch.yml /etc/elasticsearch/
 

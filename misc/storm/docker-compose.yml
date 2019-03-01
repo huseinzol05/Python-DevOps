@@ -1,0 +1,35 @@
+version: '2.3'
+services:
+  zookeeper:
+    restart: always
+    container_name: zookeeper
+    build:
+      context: zookeeper
+    tty: true
+    ports:
+      - '2181:2181'
+  supervisor:
+    links:
+      - zookeeper
+    depends_on:
+      - zookeeper
+    restart: always
+    build:
+      context: supervisor
+    command: storm supervisor
+    container_name: supervisor
+  nimbus:
+    links:
+      - zookeeper
+      - supervisor
+    depends_on:
+      - zookeeper
+      - supervisor
+    restart: always
+    build:
+      context: nimbus
+    ports:
+      - '8085:8080'
+      - '8086:8081'
+    command: bash run.sh
+    container_name: nimbus

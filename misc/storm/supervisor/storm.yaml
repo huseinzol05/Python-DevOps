@@ -1,0 +1,21 @@
+storm.zookeeper.servers:
+  - "zookeeper"
+
+storm.zookeeper.port: 2181
+
+# The worker nodes need to know which machines are the
+# candidate of master in order to download topology jars and confs.
+# If you want to set up Nimbus highly available,
+# you have to address all machines' FQDN which run nimbus.
+nimbus.seeds : ["nimbus"]
+
+# For each worker machine, you configure how many workers run on that
+# machine with this config. Each worker uses a single port for receiving
+# messages, and this setting defines which ports are open for use.
+# If you define five ports here, then Storm will allocate up to five workers
+# to run on this machine.
+supervisor.slots.ports:
+    - 6700
+    - 6701
+    - 6702
+    - 6703

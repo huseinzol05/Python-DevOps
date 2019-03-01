@@ -1,0 +1,4 @@
+storm.zookeeper.servers:
+  - "zookeeper"
+
+storm.zookeeper.port: 2181

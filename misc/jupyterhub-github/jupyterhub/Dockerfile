@@ -1,14 +1,15 @@
-FROM ubuntu:16.04 AS base
+FROM ubuntu:18.04 AS base
 
 RUN apt-get update && apt-get install -y \
     curl \
     git \
     python3 \
     python3-pip \
-    python3-wheel \
     portaudio19-dev \
-    npm nodejs-legacy \
     libsm6 libxext6 libxrender-dev
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs
 
 COPY requirements.txt ./
 RUN pip3 install -r requirements.txt

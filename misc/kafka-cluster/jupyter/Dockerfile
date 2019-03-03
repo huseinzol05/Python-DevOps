@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip
 
 RUN pip3 install kafka-python jupyter
+RUN pip3 install tornado==5.1.1
 
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8

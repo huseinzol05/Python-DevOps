@@ -1,8 +1,17 @@
-# Python-DevOps
+<p align="center">
+    <a href="#readme">
+        <img alt="logo" width="20%" src="https://cdn.freebiesupply.com/logos/large/2x/docker-logo-png-transparent.png">
+    </a>
+</p>
+<p align="center">
+  <a href="https://github.com/huseinzol05/Python-DevOps/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+</p>
 
-Gathers Python stack for DevOps, everything is Docker!
+---
 
-<img src="https://cdn.freebiesupply.com/logos/large/2x/docker-logo-png-transparent.png" align="right" width="20%">
+**Python-Devops**, gathers Python stack for DevOps, these are usually my basic templates use for my implementations, so, feel free to use it and evolve it! Everything is Docker!
+
+<img src="" align="right" width="20%">
 
 ## Table of contents
   * [Basic Python](https://github.com/huseinzol05/Python-DevOps#basic-python)
@@ -50,7 +59,7 @@ Gathers Python stack for DevOps, everything is Docker!
 2. Flask with Kafka
 3. Flask with Hadoop Hive
 4. PySpark with Jupyter and Hadoop
-5. Flink with Jupyter
+5. Flink with Jupyter (not working)
 
 ### [Unit test](unit-test)
 
@@ -66,6 +75,7 @@ Gathers Python stack for DevOps, everything is Docker!
 2. Elasticsearch + Cerebro
 3. Jupyter notebook
 4. Jupyterhub
+5. Jupyterhub + Github Auth
 5. Hadoop cluster + Luigi + Jupyter Notebook
 6. Kafka cluster
 7. Apache Storm

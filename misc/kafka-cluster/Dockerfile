@@ -2,6 +2,7 @@ FROM ubuntu:16.04 AS base
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV KM_VERSION=1.2.7
+ENV JMX_PORT=9999
 
 RUN apt-get update && apt-get install -y \
     python3 \

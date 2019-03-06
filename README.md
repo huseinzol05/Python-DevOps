@@ -11,8 +11,6 @@
 
 **Python-Devops**, gathers Python stack for DevOps, these are usually my basic templates use for my implementations, so, feel free to use it and evolve it! Everything is Docker!
 
-<img src="" align="right" width="20%">
-
 ## Table of contents
   * [Basic Python](https://github.com/huseinzol05/Python-DevOps#basic-python)
   * [Basic Backend](https://github.com/huseinzol05/Python-DevOps#basic-backend)

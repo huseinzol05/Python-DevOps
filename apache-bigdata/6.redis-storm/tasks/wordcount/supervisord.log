@@ -1,0 +1,121 @@
+2019-03-07 16:16:36,907 CRIT Supervisor running as root (no user in config file)
+2019-03-07 16:16:36,940 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2019-03-07 16:16:36,942 INFO daemonizing the supervisord process
+2019-03-07 16:16:36,952 INFO supervisord started with pid 9
+2019-03-07 16:16:37,958 INFO spawned: 'nimbus' with pid 16
+2019-03-07 16:16:37,964 INFO spawned: 'ui' with pid 17
+2019-03-07 16:16:37,968 INFO spawned: 'supervisor' with pid 18
+2019-03-07 16:16:38,973 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:16:38,973 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:16:38,974 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:17:51,455 CRIT Supervisor running as root (no user in config file)
+2019-03-07 16:17:51,480 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2019-03-07 16:17:51,484 INFO daemonizing the supervisord process
+2019-03-07 16:17:51,490 INFO supervisord started with pid 9
+2019-03-07 16:17:52,463 INFO spawned: 'nimbus' with pid 16
+2019-03-07 16:17:52,466 INFO spawned: 'ui' with pid 17
+2019-03-07 16:17:52,470 INFO spawned: 'supervisor' with pid 18
+2019-03-07 16:17:53,473 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:17:53,474 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:17:53,475 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:18:22,448 CRIT Supervisor running as root (no user in config file)
+2019-03-07 16:18:22,467 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2019-03-07 16:18:22,481 INFO daemonizing the supervisord process
+2019-03-07 16:18:22,497 INFO supervisord started with pid 9
+2019-03-07 16:18:23,502 INFO spawned: 'nimbus' with pid 16
+2019-03-07 16:18:23,508 INFO spawned: 'ui' with pid 17
+2019-03-07 16:18:23,513 INFO spawned: 'supervisor' with pid 18
+2019-03-07 16:18:24,523 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:18:24,524 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:18:24,524 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:20:23,095 INFO exited: supervisor (exit status 1; not expected)
+2019-03-07 16:20:24,099 INFO spawned: 'supervisor' with pid 469
+2019-03-07 16:20:25,103 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:20:31,098 INFO exited: nimbus (exit status 13; not expected)
+2019-03-07 16:20:32,105 INFO spawned: 'nimbus' with pid 523
+2019-03-07 16:20:33,145 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:21:52,496 INFO exited: supervisor (exit status 1; not expected)
+2019-03-07 16:21:53,614 INFO spawned: 'supervisor' with pid 796
+2019-03-07 16:21:54,654 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:22:11,033 INFO exited: nimbus (exit status 13; not expected)
+2019-03-07 16:22:12,037 INFO spawned: 'nimbus' with pid 884
+2019-03-07 16:22:13,040 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:22:37,257 CRIT Supervisor running as root (no user in config file)
+2019-03-07 16:22:37,286 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2019-03-07 16:22:37,289 INFO daemonizing the supervisord process
+2019-03-07 16:22:37,297 INFO supervisord started with pid 10
+2019-03-07 16:22:38,300 INFO spawned: 'nimbus' with pid 16
+2019-03-07 16:22:38,303 INFO spawned: 'ui' with pid 17
+2019-03-07 16:22:38,306 INFO spawned: 'supervisor' with pid 18
+2019-03-07 16:22:39,312 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:22:39,313 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:22:39,314 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:24:36,274 INFO exited: supervisor (exit status 1; not expected)
+2019-03-07 16:24:37,283 INFO spawned: 'supervisor' with pid 465
+2019-03-07 16:24:38,287 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:24:42,733 INFO exited: nimbus (exit status 13; not expected)
+2019-03-07 16:24:43,737 INFO spawned: 'nimbus' with pid 504
+2019-03-07 16:24:44,742 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:25:56,706 INFO exited: supervisor (exit status 1; not expected)
+2019-03-07 16:26:20,844 CRIT Supervisor running as root (no user in config file)
+2019-03-07 16:26:20,876 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2019-03-07 16:26:20,879 INFO daemonizing the supervisord process
+2019-03-07 16:26:20,886 INFO supervisord started with pid 9
+2019-03-07 16:26:21,863 INFO spawned: 'nimbus' with pid 16
+2019-03-07 16:26:21,873 INFO spawned: 'ui' with pid 17
+2019-03-07 16:26:21,878 INFO spawned: 'supervisor' with pid 18
+2019-03-07 16:26:22,883 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:26:22,885 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-07 16:26:22,885 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:19:47,571 CRIT Supervisor running as root (no user in config file)
+2019-03-08 01:19:47,611 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2019-03-08 01:19:47,613 INFO daemonizing the supervisord process
+2019-03-08 01:19:47,625 INFO supervisord started with pid 10
+2019-03-08 01:19:48,634 INFO spawned: 'nimbus' with pid 17
+2019-03-08 01:19:48,640 INFO spawned: 'ui' with pid 18
+2019-03-08 01:19:48,644 INFO spawned: 'supervisor' with pid 19
+2019-03-08 01:19:49,649 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:19:49,649 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:19:49,650 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:21:37,785 INFO exited: supervisor (exit status 1; not expected)
+2019-03-08 01:21:38,791 INFO spawned: 'supervisor' with pid 459
+2019-03-08 01:21:39,796 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:21:46,074 INFO exited: nimbus (exit status 13; not expected)
+2019-03-08 01:21:47,078 INFO spawned: 'nimbus' with pid 518
+2019-03-08 01:21:48,082 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:22:24,971 INFO waiting for ui to stop
+2019-03-08 01:22:25,424 INFO stopped: ui (exit status 143)
+2019-03-08 01:22:26,430 INFO spawned: 'ui' with pid 695
+2019-03-08 01:22:27,436 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:22:59,122 INFO exited: supervisor (exit status 1; not expected)
+2019-03-08 01:23:00,126 INFO spawned: 'supervisor' with pid 838
+2019-03-08 01:23:01,130 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:23:21,652 INFO exited: nimbus (exit status 13; not expected)
+2019-03-08 01:23:22,322 INFO spawned: 'nimbus' with pid 944
+2019-03-08 01:23:23,391 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:24:32,007 INFO exited: supervisor (exit status 1; not expected)
+2019-03-08 01:24:33,012 INFO spawned: 'supervisor' with pid 1221
+2019-03-08 01:24:34,016 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:24:40,744 INFO waiting for ui to stop
+2019-03-08 01:24:41,159 INFO stopped: ui (exit status 143)
+2019-03-08 01:24:42,167 INFO spawned: 'ui' with pid 1271
+2019-03-08 01:24:43,172 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:24:48,379 INFO exited: nimbus (exit status 13; not expected)
+2019-03-08 01:24:49,383 INFO spawned: 'nimbus' with pid 1318
+2019-03-08 01:24:50,387 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:26:10,296 INFO exited: supervisor (exit status 1; not expected)
+2019-03-08 01:26:11,301 INFO spawned: 'supervisor' with pid 1642
+2019-03-08 01:26:12,305 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:26:32,612 INFO exited: nimbus (exit status 13; not expected)
+2019-03-08 01:26:33,617 INFO spawned: 'nimbus' with pid 1749
+2019-03-08 01:26:34,621 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:37:20,922 CRIT Supervisor running as root (no user in config file)
+2019-03-08 01:37:20,948 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2019-03-08 01:37:20,952 INFO daemonizing the supervisord process
+2019-03-08 01:37:20,958 INFO supervisord started with pid 14
+2019-03-08 01:37:21,963 INFO spawned: 'nimbus' with pid 21
+2019-03-08 01:37:21,969 INFO spawned: 'ui' with pid 22
+2019-03-08 01:37:21,972 INFO spawned: 'supervisor' with pid 23
+2019-03-08 01:37:22,976 INFO success: nimbus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:37:22,977 INFO success: ui entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-03-08 01:37:22,978 INFO success: supervisor entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

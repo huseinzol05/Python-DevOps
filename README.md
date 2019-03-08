@@ -58,6 +58,7 @@
 3. Flask with Hadoop Hive
 4. PySpark with Jupyter and Hadoop
 5. Flink with Jupyter (not working)
+6. Apache Storm with Redis
 
 ### [Unit test](unit-test)
 

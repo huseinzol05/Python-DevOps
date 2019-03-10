@@ -44,6 +44,7 @@
 2. Multiple Flask with Nginx Loadbalancer
 3. Multiple Flask SocketIO with Nginx Loadbalancer
 4. RabbitMQ and multiple Celery with Flask
+5. Flask + Gunicorn + HAproxy
 
 ### [Big data piping](piping)
 
